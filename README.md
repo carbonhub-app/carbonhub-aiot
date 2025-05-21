@@ -16,7 +16,7 @@ Membaca data estimasi emisi karbon (CO₂) dari sensor MQ135 yang terhubung ke E
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. **Jangan membuka aplikasi lain (contoh : Arduino IDE) yang sedang menggunakan port USB/serial.**
 2. Jalankan skrip:
