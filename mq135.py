@@ -1,12 +1,13 @@
 import serial
 import requests
 import time
-from datetime import datetime
+import datetime
 
 SERIAL_PORT = '/dev/cu.SLAB_USBtoUART' 
 BAUD_RATE = 115200
 SENSOR_ID = 'sensor-001'  
 API_URL = 'https://api.carbonhub.app/emmission/collect'
+API_KEY = '19e3a076-fd8f-42c6-b542-1cb30eaae425' # Example Key
 
 ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
 time.sleep(2) 
@@ -26,13 +27,16 @@ while True:
 
                 # Payload ke server
                 payload = {
-                    "id": SENSOR_ID,
-                    "co2": co2_value,
-                    "timestamp": datetime.utcnow().isoformat() + "Z"
+                    "ppm": co2_value,
+                    "time": datetime.datetime.now(datetime.UTC).isoformat()
                 }
 
-                response = requests.post(API_URL, json=payload)
-                print(f"[{datetime.now().isoformat()}] Sent: {payload} | Status: {response.status_code}")
+                headers = {
+                    "x-api-key": API_KEY,
+                    "Content-Type": "application/json"
+                }
+                response = requests.post(API_URL, json=payload, headers=headers)
+                print(f"[{datetime.datetime.now(datetime.UTC).isoformat()}] Sent: {payload} | Status: {response.status_code}")
 
             except Exception as parse_err:
                 print(f"Gagal parsing line: {line} → {parse_err}")
