@@ -1,0 +1,14 @@
+certifi==2025.4.26
+charset-normalizer==3.4.2
+future==1.0.0
+idna==3.10
+iso8601==2.1.0
+joblib==1.5.1
+numpy==2.2.6
+PyYAML==6.0.2
+requests==2.32.3
+scikit-learn==1.7.0
+scipy==1.15.3
+serial==0.0.97
+threadpoolctl==3.6.0
+urllib3==2.4.0

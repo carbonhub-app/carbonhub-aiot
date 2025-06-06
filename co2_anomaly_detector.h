@@ -1,0 +1,9 @@
+#ifndef CO2_ANOMALY_DETECTOR_H
+#define CO2_ANOMALY_DETECTOR_H
+
+// Model parameters
+#define NORMAL_MIN 10.0f
+#define NORMAL_MAX 80.0f
+#define ANOMALY_THRESHOLD 0.5f
+
+#endif // CO2_ANOMALY_DETECTOR_H
